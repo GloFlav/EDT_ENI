@@ -1,0 +1,34 @@
+{
+  "name": "timetable-generator",
+  "version": "1.0.0",
+  "description": "A time table generator app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node src/server.js"
+  },
+  "author": "Tsiory Fitahiana",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.2",
+    "redis": "^4.1.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.15"
+  }
+}

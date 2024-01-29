@@ -1,0 +1,16 @@
+DEMARRER L'APPLICATION XAMP
+
+DEMARRER LE SERVICE MYSQL ET APACHE
+
+POUR L'APPLICATION BACK-END
+- Ouvrir un cmd
+- Aller vers le repertoire du projet (ex: cd "Desktop\Gestion Emploi du temps\back")
+- inserer la ligne : npm start
+
+
+POUR L'APPLICATION FRONT-END
+- Ouvrir un cmd
+- Aller vers le repertoire du projet (ex: cd "Desktop\Gestion Emploi du temps\front")
+- inserer la ligne : npm start
+
+OUVRIR UN NAVIGATEUR ET COPIER LE LIEN URL DANS LE CMD
