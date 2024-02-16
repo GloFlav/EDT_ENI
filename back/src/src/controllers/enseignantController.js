@@ -2,6 +2,7 @@ import { Enseignant } from '../models/enseignant';
 import { Matiere } from '../models/matiere';
 
 export const getAllEnseignant = (req, res) => {
+    console.log("is getting...")
     try {
         Enseignant.getAll((result) => {
             res.status(200).json({

@@ -50,8 +50,9 @@ class Matiere {
             try {
                 let finalResult = [];
                 for (const matiere of matList) {
-                    let tempArr = matiere.parcours_id.split(",");
-                    if (tempArr.length > 1) {
+                  
+                    if (matiere.parcours_id.toString().includes(',')) {
+                        let tempArr = matiere.parcours_id.split(",")
                         Parcours.getMany(tempArr, (parcours) => {
                             finalResult.push({
                                 matiere: matiere,

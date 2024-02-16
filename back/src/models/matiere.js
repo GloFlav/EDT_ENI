@@ -3,13 +3,17 @@ import { Parcours } from './parcours';
 
 class Matiere {
     static getAll(cb) {
-        connection.query(`SELECT M.*, N.nom_niveau, P.nom_parcours, E.nom_enseignant
+        connection.query(`SELECT M.*, N.nom_niveau, MAX(P.nom_parcours) AS nom_parcours, E.nom_enseignant
         FROM matiere M 
         LEFT JOIN niveau N ON M.niveau_id = N.id
         LEFT JOIN parcours P ON FIND_IN_SET(P.id, M.parcours_id) > 0
         LEFT JOIN enseignant E ON M.enseignant_id = E.id
-        GROUP BY M.id`, async (err, result) => {
-            if (err) throw err;
+        GROUP BY M.id, N.nom_niveau, E.nom_enseignant;`, async (err, result) => {
+            if (err) {
+                console.log(err)
+                throw err;
+            }
+            
             if (result.length != 0 ) {
                 cb(await this.getInstanceParcours(result));
                 
@@ -50,8 +54,9 @@ class Matiere {
             try {
                 let finalResult = [];
                 for (const matiere of matList) {
-                    let tempArr = matiere.parcours_id.split(",");
-                    if (tempArr.length > 1) {
+                      
+                    if (matiere.parcours_id.toString().includes(',')) {
+                        let tempArr = matiere.parcours_id.split(",")
                         Parcours.getMany(tempArr, (parcours) =>  {
                             finalResult.push({
                                 matiere : matiere,

@@ -17,7 +17,10 @@ class Enseignant {
 
     static add(nom_enseignant, cb) {
         connection.query('INSERT INTO enseignant SET nom_enseignant = ?', [nom_enseignant], (err, result) => {
-            if(err) throw err;
+            if(err) {
+                console.log(err)
+                throw err;
+            };
             cb(result);
         })
     }
